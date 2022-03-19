@@ -61,7 +61,7 @@ void listDir(const char *dirname){
     //timestring[strlen(timestring) - 2] = '\0';
     //printf("%s ", timestring);
 
-    struct tm *accesstime = localtime(&stats.st_atim);
+    struct tm *accesstime = localtime(&stats.st_atime);
     printf("%d-%02d-%02d %02d:%02d ", accesstime->tm_year + 1900, accesstime->tm_mon + 1, 
 		    accesstime->tm_mday, accesstime->tm_hour, accesstime->tm_min);
 
