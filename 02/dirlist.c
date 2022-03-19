@@ -30,7 +30,7 @@ void printDirContents(char *dirname, const options *opt, const char *curr_dir){
           printf("f");
         } else printf("?");
 	struct stat *stats = malloc(sizeof(struct stat));
-	char *pathname;
+	char *pathname = malloc(sizeof(char) * 100);
 	strcpy(pathname, curr_dir);
 	strcat(pathname, "/");
 	strcat(pathname, dirdata->d_name);
