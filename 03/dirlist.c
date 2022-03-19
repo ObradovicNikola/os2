@@ -57,11 +57,13 @@ void listDir(const char *dirname){
 
     printf("%8jd ", (intmax_t) stats.st_size);
 
-    // struct tm *lcltime = localtime(stats.st_atim.tv_sec);
-    // printf("%i-%i-%i %i:%i ", lcltime->tm_year+1900, 1, 1, 1, 1);
-    char *timestring = ctime(&stats.st_atime);
-    timestring[strlen(timestring) - 2] = '\0';
-    printf("%s ", timestring);
+    //char *timestring = ctime(&stats.st_atime);
+    //timestring[strlen(timestring) - 2] = '\0';
+    //printf("%s ", timestring);
+
+    struct tm *accesstime = localtime(&stats.st_atim);
+    printf("%d-%02d-%02d %02d:%02d ", accesstime->tm_year + 1900, accesstime->tm_mon + 1, 
+		    accesstime->tm_mday, accesstime->tm_hour, accesstime->tm_min);
 
     printf("%s\n", entry->d_name);
 
