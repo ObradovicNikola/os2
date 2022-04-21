@@ -57,7 +57,6 @@ int main(int argc, char *argv[])
 {
 	printf("Helou\n");
 
-	// options opt = malloc(sizeof(options));
 	options opt;
 	opt.sorted = 0;
 	opt.dir_count = 0;
