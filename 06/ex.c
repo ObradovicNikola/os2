@@ -6,9 +6,12 @@ int main(){
     printf("sadrzaj trenutnog direktorijuma:\n");
 
     int n = fork();
-    if (n == 0){
+    if (n < 0) {
+    	perror("");
+    }
+    else if (n == 0){
     	execl("/bin/ls", "/bin/ls", "-g", "-G", NULL);
-	fflush(stdout);
+        fflush(stdout);
     }
     wait(NULL);
 
