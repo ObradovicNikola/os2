@@ -4,6 +4,7 @@
 #include <sys/wait.h>
 
 int racunaj(int pocetno){
+	if (pocetno == 1) return 1;
 	int pid = 0;
 	int i = pocetno;
 	int ulaz, izlaz;
