@@ -16,7 +16,7 @@ int forkujSe(){
 			printf("Status deteta: %i\n", exit_status);
 			if(exit_status != 0){
 				printf("Doslo je do greske kod deteta...\n");
-				exit(exit_status);
+				_exit(exit_status);
 			}
 		} else {
 			printf("Dete nije svojevoljno zavrsilo sa radom [jos uvek]...\n");
