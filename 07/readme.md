@@ -20,7 +20,7 @@ Slucaj kada treci element u lancu izadje sa greskom
     zato sto ako pogledamo posix dokumentaciju mozemo videti sta se desava sa otvorenim fajl deskriptorima ako se proces zavrsi:
     https://pubs.opengroup.org/onlinepubs/9699919799/functions/_Exit.html
 
-           - All of the file descriptors, directory streams, conversion descriptors, and message catalog descriptors open in the calling process shall be closed.
+    - All of the file descriptors, directory streams, conversion descriptors, and message catalog descriptors open in the calling process shall be closed.
 
     Ipak je operativni sistem dovoljno pametan da spreci beskonacno izvrsavanje programa.
 
