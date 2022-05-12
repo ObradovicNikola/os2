@@ -16,18 +16,20 @@ int fibonaci(int pocetno){
 	int pisiRoditelju, citajOdRoditelja;
 
 
+	int fd[2];
+	int fd2[2];
 	while(i > 1 && brdece < POTREBNO_DECE){
-		int fd[2];
-		int fd2[2];
-		if(pipe(fd) == -1){
-			perror("");
-			exit(1);
-			// sta ako se zapravo desi error,
-			// onda ce se ugasiti samo child proces npr.
-		}
-		if(pipe(fd2) == -1){
-			perror("");
-			exit(1);
+		if(brdece == 0){
+			if(pipe(fd) == -1){
+				perror("");
+				exit(1);
+				// sta ako se zapravo desi error,
+				// onda ce se ugasiti samo child proces npr.
+			}
+			if(pipe(fd2) == -1){
+				perror("");
+				exit(1);
+			}
 		}
 		int pid = fork();
 		if(pid != 0){
