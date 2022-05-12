@@ -46,10 +46,12 @@ int fibonaci(int pocetno){
 			pisiRoditelju = dup(fd[1]);
 			citajOdRoditelja = dup(fd2[0]);
 		}
-		close(fd[0]);
-		close(fd[1]);
-		close(fd2[0]);
-		close(fd2[1]);
+		if(pid == 0 && brdece > 1){
+			close(fd[0]);
+			close(fd[1]);
+			close(fd2[0]);
+			close(fd2[1]);
+		}
 	}
 
 	printf("%i\n", i);
@@ -59,9 +61,11 @@ int fibonaci(int pocetno){
 		int task = 0;
 		int rez = 0;
 		read(citajOdRoditelja, &task, sizeof(int));
+		printf("Taking task %i\n", task);
 		if(task == 1) rez = 1;
 		else rez = 0;
 		
+		printf("nivo - %i, zadatak %i, vracam rez %i\n", i, task, rez);
 		write(pisiRoditelju, &rez, sizeof(int));
 	} else if(i == pocetno){
 		printf("I'm top process.\n");
@@ -96,7 +100,9 @@ int fibonaci(int pocetno){
 
 		int rez1 = 0, rez2 = 0;
 		read(citajOdDeteta, &rez1, sizeof(int));
+		printf("nivo - %i, uzimam od deteta %i\n", i, rez1);
 		read(citajOdDeteta, &rez2, sizeof(int));
+		printf("nivo - %i, uzimam od deteta %i\n", i, rez1);
 		task = rez1+rez2;
 		write(pisiRoditelju, &task, sizeof(int));
 	}
