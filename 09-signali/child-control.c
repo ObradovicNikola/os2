@@ -5,11 +5,8 @@
 #include <sys/wait.h>
 
 int stanjeDeteta = 0;
-int signaled = 0;
 
 void handleSignal(int sig){
-	signaled = 1;
-		
 	if (sig == SIGUSR1){
 		stanjeDeteta = 1;
 	} else if(sig == SIGUSR2){
