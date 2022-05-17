@@ -48,7 +48,9 @@ int main(){
 		sleep(2);
 		kill(pid, SIGINT);
 
-		while(wait(NULL) != -1){}
+		// podesili smo signal da ignorisemo dete
+		// pa ne moramo da ga cekamo, nece postati zombi
+		// while(wait(NULL) != -1){}
 
 		printf("Roditelj zavrsava...\n");
 	}
